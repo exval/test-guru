@@ -13,33 +13,33 @@
 ActiveRecord::Schema.define(version: 2019_05_23_130612) do
 
   create_table "answers", force: :cascade do |t|
-    t.string "body", default: "f", null: false
-    t.boolean "correct", default: false, null: false
+    t.string "body"
+    t.boolean "correct"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "body", null: false
+    t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string "title", default: 'Not empty title', null: false
-    t.integer "level", default: 0, null: false
+    t.string "title"
+    t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
