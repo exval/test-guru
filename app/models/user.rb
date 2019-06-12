@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
 	has_many :user_tests
+	has_many :created_test, class_name: 'Test', optional: true
 	has_many :tests, through: :user_test
 	
   def tests_by_level(level)
