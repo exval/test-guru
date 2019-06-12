@@ -39,10 +39,9 @@ tests = Test.create(
 	])
 
 question = Question.create (
-	[
 		{body: 'Easy math',
 		test: tests[1]}
-	])
+		)
 
 answers = Answer.create (
 	[
