@@ -1,0 +1,13 @@
+class Test < ApplicationRecord
+
+	belongs_to :category
+
+	has_many :users, through: :user_test
+	has_many :user_test
+	has_many :questions
+	belongs_to :author, class_name: 'User'
+  
+  def self.tests_by_category(category)
+    Test.joins('INNER JOIN categories ON tests.category_id = categories.id').where(categories: {title: category}).order('tests.title DESC').pluck('tests.title')
+  end
+end
