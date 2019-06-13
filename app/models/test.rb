@@ -12,6 +12,7 @@ class Test < ApplicationRecord
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
   validates :level, numericality: { only_integer: true }
+  
   def self.tests_by_category(category)
     Test.joins('INNER JOIN categories ON tests.category_id = categories.id').where(categories: {title: category}).order('tests.title DESC').pluck('tests.title')
   end
