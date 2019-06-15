@@ -6,8 +6,10 @@ class User < ApplicationRecord
 	
 	scope :tests_by_level_return, -> (level) { joins }
 
+  validates :email, presence: true
+  
 
   def tests_by_level(level)
-    Test.where(level: level).joins('INNER JOIN user_tests ON tests.id = user_tests.test_id').where(user_tests: {user_id: self.id})
+    tests.where(level: level)
   end
 end
