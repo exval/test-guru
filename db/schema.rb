@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2019_06_12_201018) do
     t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "test_id"
-    t.index ["test_id"], name: "index_questions_on_test_id"
+  #   t.integer "test_id"
+  #   t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
   create_table "tests", force: :cascade do |t|
