@@ -5,4 +5,10 @@ class TestsController < ApplicationController
 
 		render plain: @tests.inspect
 	end
+
+  def show
+    @test = Test.find(params[:id])
+    
+    render plain: @test.inspect
+  end
 end

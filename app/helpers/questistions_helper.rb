@@ -1,2 +1,0 @@
-module QuestistionsHelper
-end
