@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_06_15_231217) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
+    t.string "email", unique: true
   end
 
 end
