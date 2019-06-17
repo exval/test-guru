@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 2019_06_15_231217) do
 
   create_table "questions", force: :cascade do |t|
     t.string "body"
+    t.integer "test_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "test_id"
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_06_15_231217) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
-    t.integer "author"
     t.integer "author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
   end
@@ -59,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_06_15_231217) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", unique: true
+    t.string "email"
   end
 
 end
