@@ -11,8 +11,7 @@ class QuestionsController < ApplicationController
     render plain: @test.questions.inspect
   end
 
-  def new
-  end
+  def new; end
 
   def create
     question = @test.questions.new(question_params)
