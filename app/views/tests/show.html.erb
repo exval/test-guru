@@ -1,8 +1,15 @@
-<p> Title: 
+<h1> Title: 
   <%= @test.title %>
-</p>
+</h1>
 
 <p> Level: 
   <%= @test.level %>
 </p>
 
+<p>
+  List questions:
+  <% @questions.each do |question| %>
+    <ul> <%= question %></ul>
+  <% end %>
+</p>
+<%= link_to 'Back', tests_path(@test) %>

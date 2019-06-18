@@ -11,15 +11,17 @@ class QuestionsController < ApplicationController
     render plain: @test.questions.inspect
   end
 
-  def new; end
+  def new
+    @question = @test.questions.new
+  end
 
   def create
     question = @test.questions.new(question_params)
 
     if question.save
-      render plain: question.inspect
+      redirect_to question
     else
-      render 'questions/show', alert: "Coudn't save"
+      render :new
     end
   end
 
