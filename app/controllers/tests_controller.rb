@@ -10,6 +10,7 @@ class TestsController < ApplicationController
 
   def edit
     @test = Test.find(params[:id])
+    binding.pry    
   end
 
   def new
@@ -27,7 +28,10 @@ class TestsController < ApplicationController
   end
 
   def update
+
     @test = Test.find(params[:id])
+
+    binding.pry
 
     if @test.update(test_params)
       redirect_to @test
@@ -39,6 +43,6 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:title, :level)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end
