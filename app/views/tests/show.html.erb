@@ -9,7 +9,7 @@
 <p>
   List questions:
   <% @questions.each do |question| %>
-    <ul> <%= question %></ul>
+    <ul> <%= question.body %></ul>
   <% end %>
 </p>
 <%= link_to 'Back', tests_path(@test) %>
