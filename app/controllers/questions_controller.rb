@@ -8,7 +8,6 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    binding.pry
     @question = @test.questions.new
   end
 
@@ -16,19 +15,18 @@ class QuestionsController < ApplicationController
     question = @test.questions.new(question_params)
 
     if question.save
-      binding.pry
-      redirect_to test_question_path(question)
+      redirect_to test_question_path(question.test, question.id)
     else
       render :new
     end
   end
 
-  def edit
+  def update
     question = @test.questions.update(question_params)
 
     if question.update
       binding.pry
-      redirect_to 
+      redirect_to test_question_path(question.test, question.id)
     else
       render :edit
     end
@@ -37,10 +35,10 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
 
-    redirect_to tests_path
+    redirect_to test_question_path(question.test, question.id)
   end
 
-  def update
+  def edit
   end
 
   private
