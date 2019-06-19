@@ -11,19 +11,27 @@ class QuestionsController < ApplicationController
     binding.pry
     @question = @test.questions.new
   end
-  
+
   def create
     question = @test.questions.new(question_params)
 
     if question.save
       binding.pry
-      redirect_to test_questions_path(question.test)
+      redirect_to test_question_path(question)
     else
       render :new
     end
   end
 
   def edit
+    question = @test.questions.update(question_params)
+
+    if question.update
+      binding.pry
+      redirect_to 
+    else
+      render :edit
+    end
   end
 
   def destroy
