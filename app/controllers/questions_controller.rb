@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[new create show destroy]
+  before_action :find_test, only: %i[new create update show destroy]
   before_action :find_question, only: %i[show update destroy]
-  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def show
     @answers = @question.answers
@@ -22,11 +22,8 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    question = @test.questions.update(question_params)
-
-    if question.update
-      binding.pry
-      redirect_to test_question_path(question.test, question.id)
+    if @question.update
+      redirect_to test_question_path(@question.test, @question.id)
     else
       render :edit
     end
