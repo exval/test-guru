@@ -9,8 +9,7 @@ class TestsController < ApplicationController
     @questions = @test.questions
   end
 
-  def edit
-  end
+  def edit; end
 
   def new
     @test = Test.new
