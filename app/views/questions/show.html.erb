@@ -1,6 +1,2 @@
-<table>
-  <td> Name: <%= @question.body %> </td>
-  <td> colspan="2"> Actions</td>
-</table>
-<%= render @questions %>
+<%= render @question %>
 <%= link_to 'Back', test_path(@question.test) %>
