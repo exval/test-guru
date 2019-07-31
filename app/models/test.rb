@@ -2,9 +2,8 @@ class Test < ApplicationRecord
 
   belongs_to :category
   belongs_to :author, class_name: 'User', optional: true
-
-  has_many :users, through: :user_test
-  has_many :user_test
+  has_many :users, through: :test_passages
+  has_many :test_passages
   has_many :questions
   
   scope :easy, ->   { where(level: 0..1) }
