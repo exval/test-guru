@@ -1,31 +1,44 @@
 class TestPassage < ApplicationRecord
 
+  RATE_OF_SUCCESS = 85.freeze
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
+  before_validation :before_validation_set_next_question, on: :update
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
+    save!
+  end
 
-    self.current_question = next_question
-    save   
-    binding.pry
-   
+  def completed?
+    current_question.nil?
+  end
+
+  def calculate
+    100 * correct_questions / test.questions.count
+  end
+
+  def method_name
+    
   end
 
   private 
 
   def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
+    self.current_question = test.questions.first if test.present? 
+  end
+
+  def before_validation_set_next_question
+    self.current_question = next_question 
   end
 
   def correct_answer?(answer_ids)
-        binding.pry
-
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort if answer_ids != nil
   end
 
