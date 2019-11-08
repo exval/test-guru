@@ -1,0 +1,5 @@
+<h1>Your result of <%= @test_passage.test.title %> Test</h1>
+
+<p>Correct answers: <%= @test_passage.correct_questions %></p>
+<p>Rate: <%= @test_passage.success %>% </p>
+<%= link_to 'Back', tests_path %>

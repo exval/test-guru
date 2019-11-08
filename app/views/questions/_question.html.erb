@@ -1,3 +1,8 @@
-  <% @questions.each do |question| %>
-    <li> <%= question.body %></li>
-  <% end %>
+<li> <%= question.body %></li>
+  
+  <%= link_to 'Edit', edit_question_path(question) %>
+  <%= link_to 'Delete',
+                  tests_path,
+                  method: :delete,
+                  data: {confirm: 'Are you sure?'} %> 
+  
